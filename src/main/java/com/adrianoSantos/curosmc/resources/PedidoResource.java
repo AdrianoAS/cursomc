@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.adrianoSantos.curosmc.domain.Cliente;
 import com.adrianoSantos.curosmc.domain.Pedido;
 import com.adrianoSantos.curosmc.service.PedidoService;
 
@@ -18,8 +19,8 @@ public class PedidoResource {
 	private PedidoService service;
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id){
-		Pedido obj = service.buscarPorId(id);
+	public ResponseEntity<Pedido> find(@PathVariable Integer id){
+		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
