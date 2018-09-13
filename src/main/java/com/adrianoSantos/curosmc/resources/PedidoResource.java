@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adrianoSantos.curosmc.domain.Cliente;
 import com.adrianoSantos.curosmc.domain.Pedido;
 import com.adrianoSantos.curosmc.service.PedidoService;
 
