@@ -55,7 +55,7 @@ public class Cliente  implements Serializable{
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo =(tipo==null) ? null : tipo.getCod();
+		this.tipo = (tipo==null) ? null : tipo.getCod();
 		
 	}
 
@@ -115,8 +115,6 @@ public class Cliente  implements Serializable{
 		this.telefones = telefones;
 	}
 	
-	
-
 	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
@@ -125,9 +123,7 @@ public class Cliente  implements Serializable{
 		this.pedidos = pedidos;
 	}
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
+	
 
 	@Override
 	public int hashCode() {
