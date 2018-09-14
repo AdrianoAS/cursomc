@@ -3,8 +3,10 @@ package com.adrianoSantos.curosmc.domain;
 import javax.persistence.Entity;
 
 import com.adrianoSantos.curosmc.domain.unums.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 @Entity
+@JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
@@ -26,5 +28,8 @@ public class PagamentoComCartao extends Pagamento {
 	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
 		this.numeroDeParcelas = numeroDeParcelas;
 	}
-	
+	@Override
+ 	public String toString() {
+ 		return "PagamentoComCartao [numeroDeParcelas=" + numeroDeParcelas + "]";
+ 	}
 }

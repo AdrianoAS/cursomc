@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adrianoSantos.curosmc.domain.Cliente;
 import com.adrianoSantos.curosmc.domain.Produto;
-import com.adrianoSantos.curosmc.dto.ClienteDTO;
 import com.adrianoSantos.curosmc.dto.ProdutoDTO;
 import com.adrianoSantos.curosmc.resources.utils.URL;
 import com.adrianoSantos.curosmc.service.ProdutoService;

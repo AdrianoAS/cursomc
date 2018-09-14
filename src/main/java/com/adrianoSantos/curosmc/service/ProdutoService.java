@@ -29,6 +29,7 @@ public class ProdutoService {
 	}
 	
 	public Page<Produto> search(String nome, List<Integer> ids, Integer page,Integer linesPages, String orderBy,String direction){
+			@SuppressWarnings("deprecation")
 			PageRequest pageResquest = new PageRequest(page, linesPages,Direction.valueOf(direction),orderBy );
 			List<Categoria> categorias = cagetogoriaRepository.findAllById(ids);
 			return produtoRepository.search(nome, categorias, pageResquest);

@@ -14,6 +14,7 @@ public class ItemPedido implements Serializable {
 	@JsonIgnore
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK();
+	
 	private Double desconto;
 	private Integer quantidade;
 	private Double preco;
@@ -31,6 +32,7 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
+	
 	public Double getSubtotal() {
 		return (preco - desconto) * quantidade;
 	}
@@ -39,9 +41,17 @@ public class ItemPedido implements Serializable {
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
+
+	public void setPedido(Pedido pedido) {
+		id.setPedido(pedido);
+	}
 	
 	public Produto getProduto(){
 		return id.getProduto();
+	}
+	
+	public void serProduto(Produto produto) {
+		id.setProduto(produto);
 	}
 
 	public ItemPedidoPK getId() {

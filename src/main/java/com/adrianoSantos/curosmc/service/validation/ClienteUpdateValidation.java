@@ -16,7 +16,7 @@ import com.adrianoSantos.curosmc.dto.ClienteDTO;
 import com.adrianoSantos.curosmc.repositorys.ClienteRepository;
 import com.adrianoSantos.curosmc.resources.exception.FieldMessage;
 
-public class ClienteUpdateValidation2 implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
+public class ClienteUpdateValidation implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 	
 	@Autowired
 	private HttpServletRequest request;
