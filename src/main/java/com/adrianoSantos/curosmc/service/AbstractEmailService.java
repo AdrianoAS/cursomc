@@ -25,6 +25,7 @@ public abstract class AbstractEmailService 	implements EmailService {
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
 	@Override
 	public void sendOderConfirmationEmail(Pedido obj) {
 		SimpleMailMessage sm = prepareSimpleMailMessageFromPedido(obj);

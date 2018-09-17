@@ -12,7 +12,7 @@ import com.adrianoSantos.curosmc.service.EmailService;
 import com.adrianoSantos.curosmc.service.MockEmailService;
 
 @Configuration
-@Profile("test")
+@Profile("teste")
 public class TestConfig {
 	
 	@Autowired

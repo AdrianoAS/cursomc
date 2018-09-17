@@ -25,7 +25,8 @@ import com.adrianoSantos.curosmc.repositorys.EnderecoReposiroty;
 @Service
 public class ClienteService {
 
-	@Autowired ClienteRepository repo;
+	@Autowired 
+	ClienteRepository repo;
 	
 	@Autowired
 	private EnderecoReposiroty enderecoRepository;
