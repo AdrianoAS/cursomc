@@ -20,6 +20,7 @@ import com.adrianoSantos.curosmc.domain.PagamentoComCartao;
 import com.adrianoSantos.curosmc.domain.Pedido;
 import com.adrianoSantos.curosmc.domain.Produto;
 import com.adrianoSantos.curosmc.domain.unums.EstadoPagamento;
+import com.adrianoSantos.curosmc.domain.unums.Perfil;
 import com.adrianoSantos.curosmc.domain.unums.TipoCliente;
 import com.adrianoSantos.curosmc.repositorys.CategoriaRepository;
 import com.adrianoSantos.curosmc.repositorys.CidadeRepository;
@@ -115,15 +116,22 @@ public class BDService{
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
 		Cliente cli1 = new Cliente(null,"Maria silva","adrianosantos.cursos@gmail.com","363789127330",TipoCliente.PessoaFisica,pe.encode("1237"));
+		cli1.addPerfil(Perfil.CLIENTE);
 		cli1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
+		
+		Cliente cli2 = new Cliente(null,"Ana Rosa","aadriano990gmail.com","31628382740",TipoCliente.PessoaFisica,pe.encode("1237"));
+		cli2.addPerfil(Perfil.ADMIN);
+		cli2.getTelefones().addAll(Arrays.asList("65141844","20452912"));
 		
 		Endereco e1 = new Endereco(null,"Rua flores","300","Apto 303","Jardim","38220234",cli1,c1);
 		Endereco e2 = new Endereco(null,"Avenida","105","sala 800","centro","38777012",cli1,c2);
+		Endereco e3 = new Endereco(null,"Avenida Paulista","105","Apto 200","centro","28777012",cli2,c2);
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
+		cli2.getEnderecos().addAll(Arrays.asList(e3));
 		
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+		clienteRepository.saveAll(Arrays.asList(cli1,cli2));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2,e3));
 		
 		Pedido ped1 = new Pedido(null, sdf.parse("30/09/2017 10:32"), cli1, e1);
 		Pedido ped2 = new Pedido(null, sdf.parse("10/10/2017 19:35"), cli1, e2);
