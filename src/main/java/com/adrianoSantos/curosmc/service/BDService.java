@@ -119,7 +119,7 @@ public class BDService{
 		cli1.addPerfil(Perfil.CLIENTE);
 		cli1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
 		
-		Cliente cli2 = new Cliente(null,"Ana Rosa","aadriano990gmail.com","31628382740",TipoCliente.PessoaFisica,pe.encode("1237"));
+		Cliente cli2 = new Cliente(null,"Ana Rosa","aadriano990@gmail.com","31628382740",TipoCliente.PessoaFisica,pe.encode("123"));
 		cli2.addPerfil(Perfil.ADMIN);
 		cli2.getTelefones().addAll(Arrays.asList("65141844","20452912"));
 		
