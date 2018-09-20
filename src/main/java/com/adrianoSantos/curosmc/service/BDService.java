@@ -115,6 +115,7 @@ public class BDService{
 		estadoRepository.saveAll(Arrays.asList(est1,est2));
 		cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
+		
 		Cliente cli1 = new Cliente(null,"Maria silva","adrianosantos.cursos@gmail.com","363789127330",TipoCliente.PessoaFisica,pe.encode("1237"));
 		cli1.addPerfil(Perfil.CLIENTE);
 		cli1.getTelefones().addAll(Arrays.asList("27363323","93838393"));

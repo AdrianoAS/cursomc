@@ -15,13 +15,16 @@ import org.springframework.transaction.annotation.Transactional;
 import com.adrianoSantos.curosmc.domain.Cidade;
 import com.adrianoSantos.curosmc.domain.Cliente;
 import com.adrianoSantos.curosmc.domain.Endereco;
+import com.adrianoSantos.curosmc.domain.unums.Perfil;
 import com.adrianoSantos.curosmc.domain.unums.TipoCliente;
 import com.adrianoSantos.curosmc.dto.ClienteDTO;
 import com.adrianoSantos.curosmc.dto.ClienteNewDTO;
+import com.adrianoSantos.curosmc.exception.AuthorizationException;
 import com.adrianoSantos.curosmc.exception.DataIntegrityException;
 import com.adrianoSantos.curosmc.exception.ObjectNotFoundException;
 import com.adrianoSantos.curosmc.repositorys.ClienteRepository;
 import com.adrianoSantos.curosmc.repositorys.EnderecoReposiroty;
+import com.adrianoSantos.curosmc.security.UserSpringSecurity;
 
 @Service
 public class ClienteService {
@@ -35,7 +38,13 @@ public class ClienteService {
 	@Autowired
 	private EnderecoReposiroty enderecoRepository;
 	
+	
 	public Cliente find(Integer id) {
+		
+		UserSpringSecurity user = UserService.Authenticated();
+		if(user ==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+				throw new AuthorizationException("Acesso negado");
+		}
 		Optional<Cliente> cli = repo.findById(id);
 		return cli.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado" + id + ",Tipo :" + Cliente	.class.getName()));
 	}

@@ -1,11 +1,12 @@
 package com.adrianoSantos.curosmc.domain.unums;
 
 public enum Perfil {
-	ADMIN(1,"ROLE_ADMIN"),
-	CLIENTE(2,"ROLE_CLIENTE");
+	CLIENTE(1,"ROLE_CLIENTE"),
+	ADMIN(2,"ROLE_ADMIN");
 	
 	private int cod;
 	private String descricao;
+	
 	public int getCod() {
 		return cod;
 	}
