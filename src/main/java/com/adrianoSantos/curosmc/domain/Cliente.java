@@ -33,6 +33,7 @@ public class Cliente  implements Serializable{
 	
 	@Column(unique=true)
 	private String email;
+	
 	private String cpfOuCnpj;
 	private Integer tipo;
 	
@@ -54,6 +55,8 @@ public class Cliente  implements Serializable{
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="PERFIS")
 	private Set<Integer> perfis = new HashSet<>();
+	
+	private String imageUrl;
 	
 	public Cliente() {
 		addPerfil(Perfil.CLIENTE);
@@ -151,6 +154,15 @@ public class Cliente  implements Serializable{
 		perfis.add(perfil.getCod());
 	}
 	
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
