@@ -30,6 +30,7 @@ public class AuthResource {
 		UserSpringSecurity user = UserService.Authenticated();
 		String token = jwtUtil.generationToken(user.getUsername());
 		response.addHeader("Authorization", "Bearer " + token);
+		response.addHeader("acess-control-expose-headers","Authorization");
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(value="/forgot", method=RequestMethod.POST)
