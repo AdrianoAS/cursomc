@@ -3,7 +3,6 @@ package com.adrianoSantos.curosmc.service;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,6 @@ public class AuthService {
 	
 	private Random rand = new Random();
 	
-	@Bean
 	public void sendNewPassword(String email) {
 		Cliente cliente = clienteRepository.findByEmail(email);
 		if(cliente == null) {
